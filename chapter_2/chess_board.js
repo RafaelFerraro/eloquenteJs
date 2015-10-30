@@ -52,7 +52,7 @@ function defineNextResultValue() {
   };
 }
 
-function replayLastToFirst() {
+function lastToFirst() {
   var index = result.length - 2;
 
   populateResult(result[index]);
@@ -60,7 +60,7 @@ function replayLastToFirst() {
 
 function handleValues() {
   if(isBreakLine()) {
-    replayLastToFirst();
+    lastToFirst();
   } else {
     defineNextResultValue();
   };
