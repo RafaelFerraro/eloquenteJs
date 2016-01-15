@@ -36,4 +36,9 @@ function range(start, end) {
   return array;
 };
 
-console.log(range(1, 10));
+function sum(list) {
+  return list.reduce((prev, curr) => prev + curr);
+};
+
+console.log(range(1, 10)); // => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+console.log(sum(range(1, 10))); // => 55
