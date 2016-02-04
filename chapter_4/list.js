@@ -10,7 +10,7 @@ var list = { value: 1, rest: { value: 2, rest: { value: 3, rest: null } } };
 
 Write a function arrayToList that builds up a data structure like the
 previous one when given [1, 2, 3] as an argument, and write a listToArray
-function that produces an array from a list. 
+function that produces an array from a list.
 Also write the helper functions
 prepend, which takes an element and a list and creates a new list that adds
 the element to the front of the input list, and nth, which takes a list and a
@@ -29,12 +29,43 @@ function arrayToList(array) {
   for (var i = array.length - 1; i >= 0; i--) {
     list = prepend(array[i], list);
   };
-  
+
   return list;
 };
 
-obj = arrayToList([1, 2, 3])
+/* ############################################################ */
+
+function handle(list, array) {
+  array.push(list.value);
+
+  if(list.rest != null && typeof(list.rest) == 'object') {
+    handle(list.rest, array);
+  };
+
+  return array;
+}
+
+function listToArray(list) {
+  var array = [];
+
+  return handle(list, array);
+};
+
+// Outputs
+
+console.log(" ************ Array To List ***********");
+arr = [1, 2, 3];
+obj = arrayToList(arr);
+console.log("Input => ", arr);
+
+console.log("Responses: ");
 console.log("First", obj.value, obj.rest);
 console.log("Second", obj.rest.value, obj.rest.rest);
 console.log("First", obj.rest.rest.value, obj.rest.rest.rest);
 
+console.log(" **************** List To Array ***************");
+
+var list = { value: 1, rest: { value: 2, rest: { value: 3, rest: null } } };
+console.log("Input -> ", list);
+console.log("Response: ");
+console.log(listToArray(list));
