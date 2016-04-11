@@ -23,6 +23,7 @@ function sixOrMoreLetters(phrase) {
   return /([a-z]){6,}/.test(phrase);
 };
 
+// returns all letters that hasn't e
 function withoutE(phrase) {
-  return /^e/.test(phrase);
+  return phrase.match(/[^e]/gi);
 };

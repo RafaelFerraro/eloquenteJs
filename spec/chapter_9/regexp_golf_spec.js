@@ -41,7 +41,7 @@ describe("popAndProp", function() {
     it("returns false", function() {
       expect(popAndProp("ieodkflporpjefid")).toBe(false);
     });
-  });  
+  });
 }); // popAndProp
 
 describe("ferrSomething", function() {
@@ -145,13 +145,17 @@ describe('sixOrMoreLetters', function() {
 describe('withoutE', function() {
   describe('when the word doesnt has the letter E', function() {
     it("returns true", function() {
-      expect(withoutE("abc")).toBe(true);
+      expect(withoutE("abc")).toEqual(
+        ['a', 'b', 'c']
+      );
     });
   });
 
   describe('when the word has the letter E', function() {
     it("returns false", function() {
-      expect(withoutE("abcdefghijklmnopqrstuyxvwz")).toBe(false);
+      expect(withoutE("abcdefghE")).toEqual(
+        ['a', 'b', 'c', 'd', 'f', 'g', 'h']
+      );
     });
   });
 }); // withoutE
