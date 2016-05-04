@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Remove Child</title>
+  </head>
+  <body>
+    <p data-scientist="yes">it is a data scientist</p>
+    <p data-scientist="no">it isn't a data scientist</p>
+
+    <script>
+      var list = document.body.getElementsByTagName("p");
+      Array.prototype.forEach.call(list, function(pp) {
+        if (pp.getAttribute("data-scientist") == "yes") {
+          // he calls his parent, then his parent remove his, very cool !
+          pp.parentNode.removeChild(pp);
+        };
+      });
+    </script>
+  </body>
+</html>

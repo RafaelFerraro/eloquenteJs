@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    This text is displayed <strong>inline</strong>,
+    <strong style="display: block">as a block</strong>, and
+    <strong style="display: none">not at all</strong>
+
+    <p id="para" style="color: red">
+      I am red
+      <button onclick="changeToGreen()">Change text to green color</button>
+      <button onclick="updateFontFamily()">Change Font Family</button>
+    </p>
+
+    <script>
+      function changeToGreen() {
+        var para = document.getElementById('para');
+
+        para.style.color = "green";
+      };
+
+      function updateFontFamily() {
+        var para = document.getElementById('para');
+
+        para.style["font-family"] = "Lucida Grande, sans-serif";
+      };
+    </script>
+  </body>
+</html>

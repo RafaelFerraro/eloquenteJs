@@ -1,0 +1,18 @@
+<p>
+  The <img src="" alt="Cat"> in the <img src="" alt="hat">
+</p>
+
+<p><button onclick="replaceImages()">Replace</button></p>
+
+<script>
+  function replaceImages() {
+    var images = document.getElementsByTagName('img');
+
+    for(var i = images.length - 1; i >= 0; i--) {
+      if (images[i].alt) {
+        var text = document.createTextNode(images[i].alt);
+        images[i].parentNode.replaceChild(text, images[i]);
+      };
+    };
+  }
+</script>
