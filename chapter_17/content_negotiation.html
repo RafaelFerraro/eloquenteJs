@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <h1>Content Negotiation</h1>
+  </body>
+
+  <script>
+    function syncRequest(method, url, contentType) {
+      var req = new XMLHttpRequest();
+      req.open(method, url, false);
+      req.setRequestHeader("Accept", contentType);
+      req.send(null);
+      return req;
+    };
+
+    function displayContent(contentType, result) {
+      var paragraph = document.createElement("p");
+      paragraph.className = contentType;
+
+      var nodeResult = document.createTextNode(result);
+      paragraph.appendChild(nodeResult);
+
+      document.body.appendChild(paragraph);
+    };
+
+    var txt  = syncRequest("GET", "http://eloquentjavascript.net/author", "text/plain");
+    var html = syncRequest("GET", "http://eloquentjavascript.net/author", "text/html");
+    var json = syncRequest(
+      "GET", "http://eloquentjavascript.net/author", "application/json"
+    );
+
+    displayContent(txt.getResponseHeader("Content-Type"), txt.responseText);
+    displayContent(html.getResponseHeader("Content-Type"), html.responseText);
+    displayContent(json.getResponseHeader("Content-Type"), json.responseText);
+  </script>
+</html>
